@@ -1,16 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Github, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Layout/Navbar';
 import Footer from '../components/Layout/Footer';
-import CommandPalette from '../components/Layout/CommandPalette';
+
 import ScrollProgress from '../components/UI/ScrollProgress';
 import GradientOrb from '../components/UI/GradientOrb';
 import { featuredProjects, additionalProjects } from '../data/projects';
 
 export default function ProjectsPage() {
-  const [cmdOpen, setCmdOpen] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -22,8 +21,7 @@ export default function ProjectsPage() {
       <div className="grid-overlay" />
       <ScrollProgress />
       
-      <CommandPalette isOpen={cmdOpen} onClose={() => setCmdOpen(false)} />
-      <Navbar onCommandPalette={() => setCmdOpen(true)} />
+      <Navbar />
 
       <main className="relative z-10 pt-32 pb-24">
         {/* Ambient orbs */}

@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import React from 'react';
 import Navbar from '../components/Layout/Navbar';
 import Footer from '../components/Layout/Footer';
-import CommandPalette from '../components/Layout/CommandPalette';
+
 import ScrollProgress from '../components/UI/ScrollProgress';
 import SectionBackground from '../components/UI/SectionBackground';
 
@@ -18,7 +18,6 @@ import Leadership from '../sections/Leadership';
 import Contact from '../sections/Contact';
 
 export default function Home() {
-  const [cmdOpen, setCmdOpen] = useState(false);
 
   return (
     <>
