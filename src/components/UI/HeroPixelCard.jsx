@@ -52,7 +52,7 @@ export default function HeroPixelCard() {
           }}
         >
           <img
-            src="/Portfolio-Website/hero-pixel.jpg"
+            src="/hero-pixel.jpg"
             alt="Developer coding on a train with a cat"
             draggable={false}
             className="w-full h-full block object-cover object-bottom select-none"

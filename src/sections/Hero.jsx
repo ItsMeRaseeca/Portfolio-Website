@@ -76,7 +76,7 @@ export default function Hero() {
                 View Projects
               </a>
               <a
-                href="/resume.pdf"
+                href="https://drive.google.com/file/d/1s3r1RZ-d_tKQcCB8snDdOTDW1dpvnmlB/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary"

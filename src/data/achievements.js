@@ -5,7 +5,7 @@ export const achievements = [
     description: 'Built Bookify, an AI-powered service booking platform, and secured first place among 350+ teams at the national-level hackathon.',
     year: '2025',
     type: 'winner',
-    image: '/Portfolio-Website/achievements/odoo.jpg'
+    image: '/achievements/odoo.jpg'
   },
   {
     id: 'augenblick',
@@ -13,7 +13,7 @@ export const achievements = [
     description: 'Built ScrapHappens, an agentic AI-powered web scraping platform, and reached the top 9 out of 150+ teams at Augenblick hackathon.',
     year: '2026',
     type: 'finalist',
-    image: '/Portfolio-Website/achievements/augenblick.jpg'
+    image: '/achievements/augenblick.jpg'
   },
   {
     id: 'tsec-hacks',
@@ -21,7 +21,7 @@ export const achievements = [
     description: 'Built Cooper and reached the top 10 among competing teams at TSEC Hacks 2026 Hackathon.',
     year: '2026',
     type: 'finalist',
-    image: '/Portfolio-Website/achievements/tsec-hacks.jpg'
+    image: '/achievements/tsec-hacks.jpg'
   },
 ];
 
@@ -67,13 +67,13 @@ export const leadership = [
   {
     title: 'TSEC CodeStorm — Senior Committee Member',
     period: 'Apr 2025 — Apr 2026',
-    image: '/Portfolio-Website/leadership/codestorm.jpg',
+    image: '/leadership/codestorm.jpg',
     description: "As a Senior Committee Member of TSEC CodeStorm, I contributed to the planning and execution of flagship technical events, including Codeissance 2025 hackathon, and coding contests HackSprint 2025, and CodeQuest 2026. I worked closely with the technical team to coordinate design initiatives, mentor junior members, and ensure consistency across event branding and creatives.",
   },
   {
     title: 'GSSoC \'25 — Open Source Contributor',
     period: '2025',
-    image: '/Portfolio-Website/leadership/gssoc.jpg',
+    image: '/leadership/gssoc.jpg',
     description: 'Contributed to open-source projects as part of GirlScript Summer of Code (GSSoC) 2025, collaborating with maintainers and fellow contributors to implement features, resolve issues, and gain hands-on experience working with real-world codebases.',
   }
 ];
