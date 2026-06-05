@@ -26,8 +26,8 @@ const commands = [
   { label: 'Leadership', icon: Users, action: 'scroll', target: 'leadership' },
   { label: 'Contact', icon: Mail, action: 'scroll', target: 'contact' },
   { label: 'All Projects Page', icon: ExternalLink, action: 'navigate', target: '/projects' },
-  { label: 'GitHub', icon: ExternalLink, action: 'link', target: 'https://github.com/raseeca' },
-  { label: 'LinkedIn', icon: ExternalLink, action: 'link', target: 'https://linkedin.com/in/raseeca' },
+  { label: 'GitHub', icon: ExternalLink, action: 'link', target: 'https://github.com/ItsMeRaseeca' },
+  { label: 'LinkedIn', icon: ExternalLink, action: 'link', target: 'https://www.linkedin.com/in/raseeca-kashelkar-47a8a9246/' },
 ];
 
 export default function CommandPalette({ isOpen, onClose }) {

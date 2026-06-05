@@ -12,10 +12,7 @@ export default function Experience() {
         Experience
       </h2>
 
-      <div className="relative pl-10">
-        {/* Timeline line */}
-        <div className="timeline-line" />
-
+      <div className="flex flex-col gap-6">
         {experience.map((item, i) => (
           <motion.div
             key={i}
@@ -23,11 +20,7 @@ export default function Experience() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.15 }}
-            className="relative pb-12 last:pb-0"
           >
-            {/* Timeline dot */}
-            <div className="timeline-dot top-1.5" />
-
             {/* Card */}
             <div className="glass-card glass-card-hover p-6">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-4">

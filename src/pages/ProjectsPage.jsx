@@ -199,7 +199,7 @@ export default function ProjectsPage() {
             
             <div className="text-center mt-12">
                <a
-                  href="https://github.com/raseeca"
+                  href="https://github.com/ItsMeRaseeca"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-slate-400 hover:text-white font-body text-sm transition-colors"

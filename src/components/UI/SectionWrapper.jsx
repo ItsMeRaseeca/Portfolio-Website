@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export default function SectionWrapper({ children, id, className = '' }) {
   return (
-    <section id={id} className={`relative py-24 md:py-32 ${className}`}>
+    <section id={id} className={`relative py-16 md:py-24 ${className}`}>
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}

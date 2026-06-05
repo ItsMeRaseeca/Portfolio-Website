@@ -64,10 +64,10 @@ export default function Navbar({ onCommandPalette }) {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
         scrolled
-          ? 'bg-space-900/80 backdrop-blur-xl border-b border-white/[0.06]'
-          : 'bg-transparent'
+          ? 'bg-space-900/80 backdrop-blur-xl border-white/[0.06]'
+          : 'bg-transparent border-transparent'
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -112,14 +112,13 @@ export default function Navbar({ onCommandPalette }) {
 
         {/* Right side actions */}
         <div className="flex items-center gap-3">
-          {/* Command palette shortcut */}
+          {/* Theme toggler */}
           <button
-            onClick={onCommandPalette}
-            className="hidden md:flex items-center gap-1.5 px-2.5 py-1 text-[11px] text-slate-500 font-mono border border-white/[0.08] rounded-lg hover:border-indigo-500/30 hover:text-slate-300 transition-all"
-            title="Command Palette"
+            className="hidden md:flex items-center justify-center w-8 h-8 text-slate-400 border border-white/[0.08] rounded-lg hover:border-indigo-500/30 hover:text-indigo-300 hover:bg-indigo-500/10 transition-all"
+            title="Toggle Theme"
+            aria-label="Toggle Theme"
           >
-            <span>⌘</span>
-            <span>K</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
           </button>
 
           {/* Mobile menu toggle */}

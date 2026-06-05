@@ -1,7 +1,29 @@
+import VaporizeTextCycle, { Tag } from './VaporizeText';
+
+/**
+ * PixelLabel — section heading label with vapour-text animation.
+ * The canvas needs an explicit height; `texts` is a single-item array
+ * since each section has one label.
+ */
 export default function PixelLabel({ children }) {
   return (
-    <span className="inline-block font-pixel text-[10px] text-indigo-400 tracking-[0.2em] mb-6 px-3 py-1.5 border border-indigo-500/20 rounded-md bg-indigo-500/5 select-none">
-      {children}
-    </span>
+    <div className="mb-6 h-10 w-56 select-none" aria-label={String(children)}>
+      <VaporizeTextCycle
+        texts={[String(children)]}
+        font={{
+          fontFamily: '"Press Start 2P", monospace',
+          fontSize: '13px',
+          fontWeight: 400,
+        }}
+        color="rgb(167, 139, 250)"
+        spread={4}
+        density={6}
+        animation={{ vaporizeDuration: 2.5, fadeInDuration: 1.2, waitDuration: 3 }}
+        direction="left-to-right"
+        alignment="left"
+        tag={Tag.P}
+      />
+    </div>
   );
 }
+

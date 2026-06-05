@@ -18,13 +18,9 @@ export default function Skills() {
     <SectionWrapper id="skills">
       <PixelLabel>/SKILLS</PixelLabel>
 
-      <h2 className="font-heading text-3xl sm:text-4xl font-bold text-white mb-4">
+      <h2 className="font-heading text-3xl sm:text-4xl font-bold text-white mb-12">
         Skills & Technologies
       </h2>
-      <p className="text-slate-400 font-body mb-12 max-w-2xl">
-        Technologies I use to build full-stack applications, AI systems, and
-        developer tools.
-      </p>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {skillCategories.map((category, i) => {
@@ -78,6 +74,26 @@ export default function Skills() {
           );
         })}
       </div>
+
+      {/* Also Proficient In */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, delay: 0.5 }}
+        className="mt-6 glass-card p-6 border-white/[0.05]"
+      >
+        <div className="text-center mb-6 text-[10px] sm:text-xs font-mono tracking-[0.2em] text-slate-500 uppercase">
+          Also Proficient In
+        </div>
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+          {['REST API', 'CRUD', 'MERN Stack', 'Generative AI', 'Machine Learning', 'API Building', 'Full Stack Dev', 'OOP', 'Amazon AWS'].map(skill => (
+            <span key={skill} className="px-4 py-2 rounded-full border border-white/[0.05] bg-space-800/50 hover:bg-space-700 transition-colors text-xs text-slate-300 font-body">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </motion.div>
     </SectionWrapper>
   );
 }

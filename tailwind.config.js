@@ -4,13 +4,21 @@ export default {
   theme: {
     extend: {
       colors: {
+        /* Deep purple-black scale — matches the inspiration palette */
         space: {
-          950: '#030712',
-          900: '#050816',
-          800: '#080D1E',
-          700: '#0A1025',
-          600: '#0F1A3A',
-          500: '#162350',
+          950: '#03000A',
+          900: '#06000F',
+          800: '#0C0419',
+          700: '#130826',
+          600: '#1E0D3E',
+          500: '#2D1259',
+        },
+        /* Primary accent — violet/purple */
+        accent: {
+          violet: '#7c3aed',
+          purple: '#a855f7',
+          fuchsia: '#d946ef',
+          indigo: '#4f46e5',
         },
       },
       fontFamily: {

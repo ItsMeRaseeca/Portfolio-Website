@@ -10,13 +10,9 @@ export default function Projects() {
     <SectionWrapper id="projects">
       <PixelLabel>/PROJECTS</PixelLabel>
 
-      <h2 className="font-heading text-3xl sm:text-4xl font-bold text-white mb-4">
+      <h2 className="font-heading text-3xl sm:text-4xl font-bold text-white mb-12">
         Featured Projects
       </h2>
-      <p className="text-slate-400 font-body mb-16 max-w-2xl">
-        End-to-end systems built for hackathons, production use, and research
-        exploration.
-      </p>
 
       <div className="space-y-20">
         {featuredProjects.map((project, i) => (
@@ -33,51 +29,60 @@ export default function Projects() {
             {/* Project Image Placeholder */}
             <div className={`${i % 2 === 1 ? 'lg:order-2' : ''}`}>
               <div
-                className={`relative aspect-[16/10] rounded-xl overflow-hidden bg-gradient-to-br ${project.color} border border-white/[0.06] group`}
+                className={`relative rounded-xl overflow-hidden bg-gradient-to-br ${project.color} border border-indigo-500/60 shadow-[0_0_25px_rgba(99,102,241,0.35)] group`}
               >
-                {/* Grid pattern overlay */}
-                <div
-                  className="absolute inset-0 opacity-30"
-                  style={{
-                    backgroundImage:
-                      'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
-                    backgroundSize: '40px 40px',
-                  }}
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-14 h-14 mx-auto mb-3 rounded-xl bg-white/[0.06] border border-white/[0.08] flex items-center justify-center group-hover:border-indigo-500/20 transition-colors">
-                      <Monitor
-                        size={24}
-                        className="text-slate-500 group-hover:text-slate-400 transition-colors"
-                      />
+                {project.image ? (
+                  <img src={project.image} alt={project.title} className="w-full h-auto block opacity-85 group-hover:opacity-100 transition-opacity" />
+                ) : (
+                  <>
+                    {/* Grid pattern overlay */}
+                    <div
+                      className="absolute inset-0 opacity-30"
+                      style={{
+                        backgroundImage:
+                          'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
+                        backgroundSize: '40px 40px',
+                      }}
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="w-14 h-14 mx-auto mb-3 rounded-xl bg-white/[0.06] border border-white/[0.08] flex items-center justify-center group-hover:border-indigo-500/20 transition-colors">
+                          <Monitor
+                            size={24}
+                            className="text-slate-500 group-hover:text-slate-400 transition-colors"
+                          />
+                        </div>
+                        <span className="text-xs text-slate-500 font-body">
+                          Screenshot coming soon
+                        </span>
+                      </div>
                     </div>
-                    <span className="text-xs text-slate-500 font-body">
-                      Screenshot coming soon
-                    </span>
-                  </div>
-                </div>
+                  </>
+                )}
               </div>
             </div>
 
             {/* Project Info */}
             <div className={`${i % 2 === 1 ? 'lg:order-1' : ''}`}>
+              {/* Impact highlight (Bookify Trophy) placed above the title/tagline */}
+              {project.impact && (
+                <div className="mb-4 inline-flex font-body items-center bg-amber-500/10 border border-amber-500/20 text-amber-300 px-3 py-1.5 rounded-lg text-sm font-semibold shadow-[0_0_15px_rgba(245,158,11,0.1)]">
+                  {project.impact}
+                </div>
+              )}
+
               <h3 className="font-heading text-2xl font-bold text-white mb-2">
                 {project.title}
               </h3>
               <p className="text-sm text-indigo-400 font-body font-medium mb-4">
                 {project.tagline}
               </p>
-              <p className="text-slate-400 font-body leading-relaxed mb-5">
-                {project.description}
-              </p>
-
-              {/* Impact highlight */}
-              {project.impact && (
-                <p className="text-sm text-slate-300 font-body font-medium mb-5 pl-3 border-l-2 border-indigo-500/40">
-                  {project.impact}
-                </p>
-              )}
+              
+              <div className="text-slate-400 font-body leading-relaxed mb-6 space-y-3">
+                {project.description.split('\n\n').map((paragraph, idx) => (
+                  <p key={idx}>{paragraph}</p>
+                ))}
+              </div>
 
               {/* Tech tags */}
               <div className="flex flex-wrap gap-2 mb-6">

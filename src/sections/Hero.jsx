@@ -1,20 +1,18 @@
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, ArrowDown, Download } from 'lucide-react';
-import TerminalVisual from '../components/UI/TerminalVisual';
-import GradientOrb from '../components/UI/GradientOrb';
+import HeroPixelCard from '../components/UI/HeroPixelCard';
+import VaporizeTextCycle, { Tag } from '../components/UI/VaporizeText';
 
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center pt-16 overflow-hidden"
+      className="relative min-h-screen flex items-center pt-20 overflow-visible"
     >
-      {/* Ambient orbs */}
-      <GradientOrb className="w-[600px] h-[600px] -top-40 -left-40" color="indigo" />
-      <GradientOrb className="w-[400px] h-[400px] top-20 right-0" color="violet" />
+      {/* Vignette has been moved to Home.jsx to cover the entire page uniformly */}
 
       <div className="max-w-6xl mx-auto px-6 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-[1fr_380px] xl:grid-cols-[1fr_420px] gap-8 lg:gap-0 items-center">
           {/* Left — Text content */}
           <div className="relative z-10">
             {/* Pixel badge */}
@@ -22,10 +20,25 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
+              className="mb-8"
             >
-              <span className="inline-block font-pixel text-[9px] text-indigo-400 tracking-[0.15em] px-3 py-1.5 border border-indigo-500/20 rounded-md bg-indigo-500/5 mb-8">
-                FULL STACK DEVELOPER • AI/ML
-              </span>
+              <div className="h-8 w-72 select-none" aria-label="Full Stack Developer · AI/ML">
+                <VaporizeTextCycle
+                  texts={['FULL STACK DEVELOPER', 'AI / ML ENGINEER']}
+                  font={{
+                    fontFamily: '"Press Start 2P", monospace',
+                    fontSize: '9px',
+                    fontWeight: 400,
+                  }}
+                  color="rgb(167, 139, 250)"
+                  spread={4}
+                  density={6}
+                  animation={{ vaporizeDuration: 2.5, fadeInDuration: 1.2, waitDuration: 3 }}
+                  direction="left-to-right"
+                  alignment="left"
+                  tag={Tag.P}
+                />
+              </div>
             </motion.div>
 
             {/* Name */}
@@ -47,7 +60,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg text-slate-400 max-w-lg leading-relaxed mb-8 font-body"
             >
-              I build end-to-end AI systems — from machine learning models to
+              I build end-to-end AI systems from machine learning models to
               full-stack applications that solve real problems.
             </motion.p>
 
@@ -78,48 +91,48 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex items-center gap-4"
+              className="flex items-center gap-6"
             >
               <a
-                href="https://github.com/raseeca"
+                href="https://github.com/ItsMeRaseeca"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors group"
                 aria-label="GitHub"
               >
                 <Github
-                  size={18}
+                  size={24}
                   className="group-hover:text-indigo-400 transition-colors"
                 />
               </a>
               <a
-                href="https://linkedin.com/in/raseeca"
+                href="https://www.linkedin.com/in/raseeca-kashelkar-47a8a9246/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors group"
                 aria-label="LinkedIn"
               >
                 <Linkedin
-                  size={18}
+                  size={24}
                   className="group-hover:text-indigo-400 transition-colors"
                 />
               </a>
               <a
-                href="mailto:raseeca@email.com"
+                href="mailto:raseecakashelkar163@gmail.com"
                 className="flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors group"
                 aria-label="Email"
               >
                 <Mail
-                  size={18}
+                  size={24}
                   className="group-hover:text-indigo-400 transition-colors"
                 />
               </a>
             </motion.div>
           </div>
 
-          {/* Right — Terminal Visual */}
-          <div className="hidden lg:block">
-            <TerminalVisual />
+          {/* Right — borderless pixel art */}
+          <div className="hidden md:block">
+            <HeroPixelCard />
           </div>
         </div>
       </div>

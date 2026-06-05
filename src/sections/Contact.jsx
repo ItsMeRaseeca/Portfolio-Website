@@ -8,14 +8,14 @@ const contactInfo = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'raseeca@email.com',
-    href: 'mailto:raseeca@email.com',
+    value: 'raseecakashelkar163@gmail.com',
+    href: 'mailto:raseecakashelkar163@gmail.com',
   },
   {
     icon: Phone,
     label: 'Phone',
-    value: '+91 XXXXX XXXXX',
-    href: 'tel:+91XXXXXXXXXX',
+    value: '+91 96192 00100',
+    href: 'tel:+919619200100',
   },
   {
     icon: MapPin,
@@ -30,11 +30,12 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    // TODO: Connect to Formspree, EmailJS, or your backend
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-    setForm({ name: '', email: '', message: '' });
+    // Basic timeout to show the success state, form will still submit natively
+    setTimeout(() => {
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 3000);
+      setForm({ name: '', email: '', message: '' });
+    }, 100);
   };
 
   return (
@@ -97,7 +98,10 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
           onSubmit={handleSubmit}
-          className="lg:col-span-3 glass-card p-6 sm:p-8 space-y-5"
+          action="mailto:raseecakashelkar163@gmail.com"
+          method="POST"
+          encType="text/plain"
+          className="lg:col-span-3 glass-card p-6 sm:p-8 space-y-5 shadow-[0_0_30px_rgba(99,102,241,0.15)]"
         >
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
@@ -109,11 +113,12 @@ export default function Contact() {
               </label>
               <input
                 id="contact-name"
+                name="name"
                 type="text"
                 required
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="w-full px-4 py-3 bg-space-900/60 border border-white/[0.08] rounded-xl text-sm text-white font-body placeholder:text-slate-600 focus:outline-none focus:border-indigo-500/40 transition-colors"
+                className="w-full px-4 py-3 bg-space-900/60 border border-white/[0.08] rounded-xl text-sm text-white font-body placeholder:text-slate-600 focus:outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/20 transition-all shadow-[0_0_0_rgba(99,102,241,0)] focus:shadow-[0_0_15px_rgba(99,102,241,0.2)]"
                 placeholder="Your name"
               />
             </div>
@@ -126,11 +131,12 @@ export default function Contact() {
               </label>
               <input
                 id="contact-email"
+                name="email"
                 type="email"
                 required
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full px-4 py-3 bg-space-900/60 border border-white/[0.08] rounded-xl text-sm text-white font-body placeholder:text-slate-600 focus:outline-none focus:border-indigo-500/40 transition-colors"
+                className="w-full px-4 py-3 bg-space-900/60 border border-white/[0.08] rounded-xl text-sm text-white font-body placeholder:text-slate-600 focus:outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/20 transition-all shadow-[0_0_0_rgba(99,102,241,0)] focus:shadow-[0_0_15px_rgba(99,102,241,0.2)]"
                 placeholder="you@email.com"
               />
             </div>
@@ -145,11 +151,12 @@ export default function Contact() {
             </label>
             <textarea
               id="contact-message"
+              name="message"
               required
               rows={5}
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
-              className="w-full px-4 py-3 bg-space-900/60 border border-white/[0.08] rounded-xl text-sm text-white font-body placeholder:text-slate-600 focus:outline-none focus:border-indigo-500/40 transition-colors resize-none"
+              className="w-full px-4 py-3 bg-space-900/60 border border-white/[0.08] rounded-xl text-sm text-white font-body placeholder:text-slate-600 focus:outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/20 transition-all shadow-[0_0_0_rgba(99,102,241,0)] focus:shadow-[0_0_15px_rgba(99,102,241,0.2)] resize-none"
               placeholder="Tell me about your project or opportunity..."
             />
           </div>

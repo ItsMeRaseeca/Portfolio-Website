@@ -44,7 +44,7 @@ export default function Starfield() {
           Math.sin(time * star.twinkleSpeed + star.twinkleOffset) * 0.2;
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(180, 195, 255, ${Math.max(0.05, Math.min(0.7, opacity))})`;
+        ctx.fillStyle = `rgba(196, 181, 253, ${Math.max(0.05, Math.min(0.65, opacity))})`;
         ctx.fill();
       }
 

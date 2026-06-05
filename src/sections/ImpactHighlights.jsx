@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { motion, useInView, animate } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 import {
   GraduationCap,
   Trophy,
@@ -16,8 +17,8 @@ const highlights = [
   },
   {
     icon: Trophy,
-    value: '1st',
-    label: 'Hackathon Winner',
+    value: '1',
+    label: 'Hackathon Wins',
     color: 'text-amber-400',
   },
   {
@@ -27,24 +28,50 @@ const highlights = [
     color: 'text-violet-400',
   },
   {
-    icon: GitBranch,
-    value: 'GSSoC',
-    label: 'Open Source',
-    color: 'text-emerald-400',
-  },
-  {
     icon: Layers,
     value: '4+',
-    label: 'AI Projects',
+    label: 'Major Projects',
     color: 'text-cyan-400',
   },
 ];
 
+function AnimatedValue({ value }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
+
+  useEffect(() => {
+    if (!isInView || !ref.current) return;
+
+    // Check if the value is a number or starts with a number
+    const numMatch = String(value).match(/^([\d.]+)(.*)$/);
+    if (numMatch) {
+      const target = parseFloat(numMatch[1]);
+      const suffix = numMatch[2] || '';
+      const decimals = numMatch[1].includes('.') ? numMatch[1].split('.')[1].length : 0;
+      
+      const controls = animate(0, target, {
+        duration: 3.5, // Slowed down from 2
+        ease: "easeOut",
+        onUpdate: (v) => {
+          if (ref.current) {
+            ref.current.textContent = v.toFixed(decimals) + suffix;
+          }
+        }
+      });
+      return () => controls.stop();
+    } else {
+      ref.current.textContent = value;
+    }
+  }, [isInView, value]);
+
+  return <span ref={ref}>0</span>;
+}
+
 export default function ImpactHighlights() {
   return (
-    <section className="relative py-16 z-10">
+    <section className="relative pt-6 pb-16 z-10">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {highlights.map((item, i) => {
             const Icon = item.icon;
             return (
@@ -54,16 +81,16 @@ export default function ImpactHighlights() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="glass-card glass-card-hover p-4 text-center group"
+                className="glass-card glass-card-hover p-5 text-center group"
               >
                 <Icon
-                  size={20}
-                  className={`mx-auto mb-2.5 ${item.color} opacity-80 group-hover:opacity-100 transition-opacity`}
+                  size={24}
+                  className={`mx-auto mb-3 ${item.color} opacity-80 group-hover:opacity-100 transition-opacity`}
                 />
-                <div className="font-heading font-bold text-xl text-white mb-0.5">
-                  {item.value}
+                <div className="font-heading font-bold text-2xl text-white mb-1">
+                  <AnimatedValue value={item.value} />
                 </div>
-                <div className="text-[11px] text-slate-500 font-body font-medium uppercase tracking-wider">
+                <div className="text-xs text-slate-500 font-body font-medium uppercase tracking-wider">
                   {item.label}
                 </div>
               </motion.div>
